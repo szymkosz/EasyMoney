@@ -10,5 +10,5 @@ koszare2@illinois.edu : Implemented Microsoft Azure API. Assisted in Azure and A
 # Adrian Clark
 ajclark3@illinois.edu : Assisted in implementing Microsoft Azure API.
 
- ## Special Thanks to Johan Mufuta
+ ## Special thanks to Johan Mufuta
  Provided project inspiration.
