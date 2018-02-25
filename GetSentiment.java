@@ -1,6 +1,4 @@
 // TEXT ANALYTICS
-package getsentiment;
-
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -20,10 +18,11 @@ import javax.net.ssl.HttpsURLConnection;
  * javac GetSentiment.java -classpath .;gson-2.8.1.jar -encoding UTF-8
  * java -cp .;gson-2.8.1.jar GetSentiment
  */
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+
+// import com.google.gson.Gson;
+// import com.google.gson.GsonBuilder;
+// import com.google.gson.JsonObject;
+// import com.google.gson.JsonParser;
 
 class Document {
     public String id, language, text;
@@ -53,23 +52,27 @@ public class GetSentiment {
 // **********************************************
 
 // Replace the accessKey string value with your valid access key.
-    static String accessKey = "7718e047e7ae4fddbc6ab3a202621e6d";
+    static String accessKey = "38b171a9e2b6436c941cb26f0f953849";
 
-// Replace or verify the region.
+    // Replace or verify the region.
 
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace
-// "westcentralus" in the URI below with "westus".
+    // You must use the same region in your REST API call as you used to obtain your access keys.
+    // For example, if you obtained your access keys from the westus region, replace
+    // "westcentralus" in the URI below with "westus".
 
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
+    // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+    // a free trial access key, you should not need to change this region.
     static String host = "https://westcentralus.api.cognitive.microsoft.com";
 
     static String path = "/text/analytics/v2.0/sentiment";
 
-    public static String GetSentiment (Documents documents) throws Exception {
-        String text = new Gson().toJson(documents);
+    public static String GetSentiment (String text) throws Exception {
+        // String text = new Gson().toJson(documents);
         byte[] encoded_text = text.getBytes("UTF-8");
+
+        // StringBuilder input = new StringBuilder ();
+        // String json = new String("{  "documents": [    {      "id": "0",      "text": ");
+        // json += text + "    }  ]}"
 
         URL url = new URL(host+path);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
@@ -84,6 +87,7 @@ public class GetSentiment {
         wr.close();
 
         StringBuilder response = new StringBuilder ();
+
         BufferedReader in = new BufferedReader(
         new InputStreamReader(connection.getInputStream()));
         String line;
@@ -93,23 +97,31 @@ public class GetSentiment {
         in.close();
 
         return response.toString();
+        // return text;
     }
 
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(json_text).getAsJsonObject();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
+    // public static String prettify(String json_text) {
+    //     JsonParser parser = new JsonParser();
+    //     JsonObject json = parser.parse(json_text).getAsJsonObject();
+    //     Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    //     return gson.toJson(json);
+    // }
 
     public static void main (String[] args) {
         try {
-            Documents documents = new Documents ();
-            documents.add ("1", "en", "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.");
-            documents.add ("2", "es", "Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.");
+            // Documents documents = new Documents ();
+            // documents.add ("1", "en", "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.");
+            // documents.add ("2", "es", "Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.");
 
-            String response = GetSentiment (documents);
-            System.out.println (prettify (response));
+            HttpURLConnect http = new HttpURLConnect();
+
+            String first = http.sendGet("Nobody loves you");
+            System.out.println(HttpURLConnect.findScore(first));
+
+
+            // String response = GetSentiment (documents);
+            String response = GetSentiment ("I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.");
+            System.out.println (response);
         }
         catch (Exception e) {
             System.out.println (e);

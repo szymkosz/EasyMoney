@@ -6,21 +6,22 @@ import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class HttpURLConnectionExample {
+public class HttpURLConnect {
 
 	private final String USER_AGENT = "Mozilla/5.0";
 
-	public static void main(String[] args) throws Exception {
-
-		HttpURLConnectionExample http = new HttpURLConnectionExample();
-
-		System.out.println("Testing 1 - Send Http GET request");
-		System.out.println(http.sendGet("you a hoe"));
-
-	}
+	// public static void main(String[] args) throws Exception {
+  //
+	// 	HttpURLConnect http = new HttpURLConnect();
+  //
+	// 	System.out.println("Testing 1 - Send Http GET request");
+	// 	// System.out.println(http.sendGet("you a hoe"));
+  //   System.out.println(findScore(http.sendGet("you a hoe")));
+  //
+	// }
 
 	// HTTP GET request
-	private String sendGet(String query) throws Exception {
+	public String sendGet(String query) throws Exception {
 
     String url = "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/84b1f33f-ec76-4539-a01e-1d0dada1f10a?subscription-key=20d2344d1a06408caa9465dc4bd4d380&staging=true&spellCheck=true&bing-spell-check-subscription-key=4946a79341fa49268fb57c4a01aa1166&verbose=true&timezoneOffset=-360&q=";
 
@@ -40,7 +41,7 @@ public class HttpURLConnectionExample {
 		//add request header
 		con.setRequestProperty("User-Agent", USER_AGENT);
 
-		int responseCode = con.getResponseCode();
+		// int responseCode = con.getResponseCode();
 		// System.out.println("\nSending 'GET' request to URL : " + url);
 		// System.out.println("Response Code : " + responseCode);
 
@@ -50,16 +51,27 @@ public class HttpURLConnectionExample {
 		StringBuffer response = new StringBuffer();
 
 		while ((inputLine = in.readLine()) != null) {
-      System.out.println(inputLine);
+      // System.out.println(inputLine);
 			response.append(inputLine);
 		}
 		in.close();
 
 		//print result
-		System.out.println(response.toString().getClass().getName());
-    System.out.println(response);
+		// System.out.println(response.toString().getClass().getName());
+    // System.out.println(response);
 
-    return response.toString();
+    String ret = response.toString();
+
+    return ret;
 
 	}
+
+  public static float findScore(String input) {
+        int scoreIndexAfter = input.indexOf("score") + 8;
+        String num = input.substring(scoreIndexAfter, scoreIndexAfter+12); //get num
+        num = num.replaceAll("\\s",""); //remove whitespace
+        float numFinal = Float.parseFloat(num); //cast to float
+        return numFinal;
+      }
+
 }
