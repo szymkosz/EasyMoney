@@ -1,4 +1,4 @@
-Alecia Bell (Team Captain) , adbell2@illinois.edu : Created Android Application and user interface. Coordinated project magagment
+Alecia Bell (Team Captain) , adbell2@illinois.edu : Created Android Application and user interface. Coordinated project management
 
 Emily Howing, ehowing2@illinois.edu : Created Android Application and user interface. Assisted in Azure and Application Integration
 
