@@ -4,7 +4,7 @@ import java.net.*;
 import java.util.*;
 import javax.net.ssl.HttpsURLConnection;
 
-/*
+/* 
  * Gson: https://github.com/google/gson
  * Maven info:
  *     groupId: com.google.code.gson
@@ -19,10 +19,10 @@ import javax.net.ssl.HttpsURLConnection;
  * java -cp .;gson-2.8.1.jar GetSentiment
  */
 
-// import com.google.gson.Gson;
-// import com.google.gson.GsonBuilder;
-// import com.google.gson.JsonObject;
-// import com.google.gson.JsonParser;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 class Document {
     public String id, language, text;
@@ -66,13 +66,9 @@ public class GetSentiment {
 
     static String path = "/text/analytics/v2.0/sentiment";
 
-    public static String GetSentiment (String text) throws Exception {
-        // String text = new Gson().toJson(documents);
+    public static String GetSentiment (Documents documents) throws Exception {
+        String text = new Gson().toJson(documents);
         byte[] encoded_text = text.getBytes("UTF-8");
-
-        // StringBuilder input = new StringBuilder ();
-        // String json = new String("{  "documents": [    {      "id": "0",      "text": ");
-        // json += text + "    }  ]}"
 
         URL url = new URL(host+path);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
@@ -100,31 +96,31 @@ public class GetSentiment {
         // return text;
     }
 
-    // public static String prettify(String json_text) {
-    //     JsonParser parser = new JsonParser();
-    //     JsonObject json = parser.parse(json_text).getAsJsonObject();
-    //     Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    //     return gson.toJson(json);
-    // }
-
-    public static void main (String[] args) {
-        try {
-            // Documents documents = new Documents ();
-            // documents.add ("1", "en", "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.");
-            // documents.add ("2", "es", "Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.");
-
-            HttpURLConnect http = new HttpURLConnect();
-
-            String first = http.sendGet("Nobody loves you");
-            System.out.println(HttpURLConnect.findScore(first));
-
-
-            // String response = GetSentiment (documents);
-            String response = GetSentiment ("I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.");
-            System.out.println (response);
-        }
-        catch (Exception e) {
-            System.out.println (e);
-        }
+    public static String prettify(String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonObject json = parser.parse(json_text).getAsJsonObject();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(json);
     }
+
+    // public static void main (String[] args) {
+    //     try {
+    //         // Documents documents = new Documents ();
+    //         // documents.add ("1", "en", "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.");
+    //         // documents.add ("2", "es", "Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.");
+    //
+    //         HttpURLConnect http = new HttpURLConnect();
+    //
+    //         String first = http.sendGet("Nobody loves you");
+    //         System.out.println(HttpURLConnect.findScore(first));
+    //
+    //
+    //         // String response = GetSentiment (documents);
+    //         String response = GetSentiment ("I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.");
+    //         System.out.println (response);
+    //     }
+    //     catch (Exception e) {
+    //         System.out.println (e);
+    //     }
+    // }
 }
