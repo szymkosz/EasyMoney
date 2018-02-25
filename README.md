@@ -7,3 +7,6 @@ We decided to create software that can be integrated with current social media p
 We worked as a team to create an android app in java. We also used the Microsoft Azure API for language understanding intelligence service (LUIS), as well as their text analytics API in cognitive services. 
 ## To Try
  To try, please unzip the SecondConscienceFINAL.zip, and open the project in android studio. Running the project will allow you to demo the app simulation of the coded algorithm.
+ 
+## LICENSE 
+  Apache License 2.0
