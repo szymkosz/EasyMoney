@@ -17,7 +17,7 @@ Please submit a Pull Request when you would like to submit changes.
   * _What to include in a bug report_
     Please include the bug (what you expected to see and what actually happened), what file it is in, and line numbers.
 * First bugs for Contributors
-  * The first bug would be to correctly connect the cognative senses scripts with Andorid Stduio.
+  * The first bug would be to correctly connect the cognitive senses scripts with Andorid Stduio.
 
 
 ## Code of Conduct
