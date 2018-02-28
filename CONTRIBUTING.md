@@ -4,20 +4,21 @@
   Welcome to SecondConscience, an anti-cyber bullying software.
 
 ## Short Links to Important Resources:
-* bugs: Please report all bubs as issues on Git
+* bugs: Please report all bugs as issues on Git
 * communcations: Please reference the CONTRIBUTORS.md, and reach out to the team via email.
+
 ## Testing
 ## Development environment details
-The simulation is set up for the newest version on Andriod Studio.
+The simulation is set up for the newest version on Androidd Studio.
 ## How to submit changes:
 Please submit a Pull Request when you would like to submit changes. 
 
 ## How to report a bug: 
 * Templates: 
   * _What to include in a bug report_
-    Please include the bug (what you expected to see and what actually happened), what file it is in, and line numbers.
+    Please include the bug (what you expected to see and what actually happened), what file it is in, and the suspect line numbers.
 * First bugs for Contributors
-  * The first bug would be to correctly connect the cognitive senses scripts with Andorid Stduio.
+  * The first bug would be to correctly connect the cognitive senses scripts with Android Studio.
 
 
 ## Code of Conduct
