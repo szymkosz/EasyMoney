@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context="com.example.bella.secondconscience.AddInfo">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.23" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:backgroundTint="@android:color/background_light"
+        android:ems="10"
+        android:hint="Enter A Message"
+        android:inputType="textLongMessage"
+        android:textColorLink="@color/colorPrimary" />
+
+
+    <Button
+        android:id="@+id/done"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="132dp"
+        android:layout_height="36dp"
+        android:layout_centerInParent="true"
+        android:background="@color/colorPrimary"
+        android:shadowColor="@color/colorPrimary"
+        android:text="Finish"
+        android:textColorLink="@android:color/background_light" />
+
+</LinearLayout>
